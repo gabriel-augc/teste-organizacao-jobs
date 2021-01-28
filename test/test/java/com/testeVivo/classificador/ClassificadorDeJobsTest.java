@@ -23,7 +23,7 @@ public class ClassificadorDeJobsTest {
     private Date now = new Date();
 
     @Before
-    public void initObjects() {
+    public void before() {
         this.classificador = new ClassificadorDeJobs();
 
 
