@@ -13,6 +13,7 @@ public class App {
     }
 
     static void run() {
+        System.out.println("Iniciando Consumo...");
         Consumer<Long, String> consumidor = CriadorDeConsumidores.criar();
 
         ClassificadorDeJobs classificador = new ClassificadorDeJobs();

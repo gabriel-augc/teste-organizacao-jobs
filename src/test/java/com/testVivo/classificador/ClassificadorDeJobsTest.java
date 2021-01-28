@@ -1,8 +1,8 @@
-package test.java.com.testeVivo.classificador;
+package com.testVivo.classificador;
 
 
 import com.testeVivo.classificador.ClassificadorDeJobs;
-import com.testeVivo.constantes.JobContantes;
+import com.testeVivo.constantes.JobConstantes;
 import com.testeVivo.entidades.Job;
 import org.assertj.core.api.Assertions;
 import org.junit.Assert;
@@ -27,12 +27,12 @@ public class ClassificadorDeJobsTest {
         this.classificador = new ClassificadorDeJobs();
 
 
-        JobContantes.INICIO_JANELA = this.sdf.format(this.now);
+        JobConstantes.INICIO_JANELA = this.sdf.format(this.now);
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(this.now);
         calendar.add(Calendar.HOUR_OF_DAY, 48);
-        JobContantes.FIM_JANELA = this.sdf.format(calendar.getTime());
+        JobConstantes.FIM_JANELA = this.sdf.format(calendar.getTime());
     }
 
     @Test
@@ -110,21 +110,21 @@ public class ClassificadorDeJobsTest {
         Calendar calendar = Calendar.getInstance();
 
         calendar.setTime(this.now);
-        calendar.set(Calendar.HOUR, JobContantes.HORA_INICIO_EXECUCAO + 2);
+        calendar.set(Calendar.HOUR, JobConstantes.HORA_INICIO_EXECUCAO + 2);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         Job job1 = new Job(1, "teste1", calendar.getTime(), 2);
         jobs.add(job1);
 
         calendar.setTime(this.now);
-        calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_INICIO_EXECUCAO + 28);
+        calendar.add(Calendar.HOUR_OF_DAY, JobConstantes.HORA_INICIO_EXECUCAO + 28);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         Job job2 = new Job(2, "teste2", calendar.getTime(), 4);
         jobs.add(job2);
 
         calendar.setTime(this.now);
-        calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_INICIO_EXECUCAO + 24);
+        calendar.add(Calendar.HOUR_OF_DAY, JobConstantes.HORA_INICIO_EXECUCAO + 24);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         Job job3 = new Job(3, "teste3", calendar.getTime(), 6);
@@ -152,21 +152,21 @@ public class ClassificadorDeJobsTest {
         Calendar calendar = Calendar.getInstance();
 
         calendar.setTime(this.now);
-        calendar.set(Calendar.HOUR, JobContantes.HORA_INICIO_EXECUCAO + 2);
+        calendar.set(Calendar.HOUR, JobConstantes.HORA_INICIO_EXECUCAO + 2);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         Job job1 = new Job(1, "teste1", calendar.getTime(), 2);
         jobs.add(job1);
 
         calendar.setTime(this.now);
-        calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_INICIO_EXECUCAO + 24);
+        calendar.add(Calendar.HOUR_OF_DAY, JobConstantes.HORA_INICIO_EXECUCAO + 24);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         Job job2 = new Job(2, "teste2", calendar.getTime(), 7);
         jobs.add(job2);
 
         calendar.setTime(this.now);
-        calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_INICIO_EXECUCAO + 28);
+        calendar.add(Calendar.HOUR_OF_DAY, JobConstantes.HORA_INICIO_EXECUCAO + 28);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         Job job3 = new Job(3, "teste3", calendar.getTime(), 7);

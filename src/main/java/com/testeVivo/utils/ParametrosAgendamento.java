@@ -1,6 +1,6 @@
 package com.testeVivo.utils;
 
-import com.testeVivo.constantes.JobContantes;
+import com.testeVivo.constantes.JobConstantes;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,10 +12,10 @@ public class ParametrosAgendamento {
 
     public Date getDataInicioJanela() {
         try {
-            Date inicioJanela = new SimpleDateFormat("yyyy-MM-dd").parse(JobContantes.INICIO_JANELA);
+            Date inicioJanela = new SimpleDateFormat("yyyy-MM-dd").parse(JobConstantes.INICIO_JANELA);
 
             this.calendar.setTime(inicioJanela);
-            this.calendar.set(Calendar.HOUR, JobContantes.HORA_INICIO_EXECUCAO);
+            this.calendar.set(Calendar.HOUR, JobConstantes.HORA_INICIO_EXECUCAO);
             return calendar.getTime();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -25,10 +25,10 @@ public class ParametrosAgendamento {
 
     public Date getDataFimJanela() {
         try {
-            Date inicioJanela = new SimpleDateFormat("yyyy-MM-dd").parse(JobContantes.FIM_JANELA);
+            Date inicioJanela = new SimpleDateFormat("yyyy-MM-dd").parse(JobConstantes.FIM_JANELA);
 
             this.calendar.setTime(inicioJanela);
-            this.calendar.set(Calendar.HOUR, JobContantes.HORA_FIM_EXECUCAO);
+            this.calendar.set(Calendar.HOUR, JobConstantes.HORA_FIM_EXECUCAO);
             return calendar.getTime();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -38,7 +38,7 @@ public class ParametrosAgendamento {
 
     public Date getFimExecucao() {
         this.calendar.setTime(this.dia);
-        calendar.set(Calendar.HOUR, JobContantes.HORA_FIM_EXECUCAO);
+        calendar.set(Calendar.HOUR, JobConstantes.HORA_FIM_EXECUCAO);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         return this.calendar.getTime();

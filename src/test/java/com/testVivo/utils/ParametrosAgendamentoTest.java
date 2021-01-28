@@ -1,6 +1,6 @@
-package test.java.com.testeVivo.utils;
+package com.testVivo.utils;
 
-import com.testeVivo.constantes.JobContantes;
+import com.testeVivo.constantes.JobConstantes;
 import com.testeVivo.utils.ParametrosAgendamento;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,15 +16,15 @@ public class ParametrosAgendamentoTest{
 
     @Test
     public void deveRetornarADataDeInicioDaJanelaFormatadaCorretamente() throws ParseException {
-        JobContantes.INICIO_JANELA = "2021-01-01";
-        JobContantes.HORA_INICIO_EXECUCAO = 8;
+        JobConstantes.INICIO_JANELA = "2021-01-01";
+        JobConstantes.HORA_INICIO_EXECUCAO = 8;
 
         ParametrosAgendamento paramentos = new ParametrosAgendamento();
         Date dataInicioJanela = paramentos.getDataInicioJanela();
 
-        Date dataEsperada = this.sdf.parse(JobContantes.INICIO_JANELA);
+        Date dataEsperada = this.sdf.parse(JobConstantes.INICIO_JANELA);
         this.calendar.setTime(dataEsperada);
-        this.calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_INICIO_EXECUCAO);
+        this.calendar.add(Calendar.HOUR_OF_DAY, JobConstantes.HORA_INICIO_EXECUCAO);
         dataEsperada = this.calendar.getTime();
 
         Assert.assertEquals(dataInicioJanela, dataEsperada);
@@ -32,15 +32,15 @@ public class ParametrosAgendamentoTest{
 
     @Test
     public void deveRetornarADataDeFimDaJanelaFormatadaCorretamente() throws ParseException {
-        JobContantes.FIM_JANELA = "2021-01-01";
-        JobContantes.HORA_FIM_EXECUCAO = 16;
+        JobConstantes.FIM_JANELA = "2021-01-01";
+        JobConstantes.HORA_FIM_EXECUCAO = 16;
 
         ParametrosAgendamento paramentos = new ParametrosAgendamento();
         Date dataFimJanela = paramentos.getDataFimJanela();
 
-        Date dataEsperada = this.sdf.parse(JobContantes.FIM_JANELA);
+        Date dataEsperada = this.sdf.parse(JobConstantes.FIM_JANELA);
         this.calendar.setTime(dataEsperada);
-        this.calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_FIM_EXECUCAO);
+        this.calendar.add(Calendar.HOUR_OF_DAY, JobConstantes.HORA_FIM_EXECUCAO);
         dataEsperada = this.calendar.getTime();
 
         Assert.assertEquals(dataFimJanela, dataEsperada);

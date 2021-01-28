@@ -24,6 +24,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <exec.mainClass>com.testeVivo.App</exec.mainClass>
     </properties>
 
     <dependencies>
