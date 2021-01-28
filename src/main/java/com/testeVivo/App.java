@@ -30,7 +30,6 @@ public class App {
             }
 
             registros.forEach(registro -> {
-                System.out.println(registro.value());
                 classificador.classificar(registro.value());
             });
             consumidor.commitAsync();

@@ -1,7 +1,7 @@
 package com.testeVivo.constantes;
 
 public class JobConstantes {
-    public static String INICIO_JANELA = System.getenv().getOrDefault("INICIO_JANELA", "2021-01-29");
+    public static String INICIO_JANELA = System.getenv().getOrDefault("INICIO_JANELA", "2021-01-28");
 
     public static String FIM_JANELA = System.getenv().getOrDefault("FIM_JANELA", "2021-02-28");
 

@@ -117,14 +117,14 @@ public class ClassificadorDeJobsTest {
         jobs.add(job1);
 
         calendar.setTime(this.now);
-        calendar.add(Calendar.HOUR_OF_DAY, JobConstantes.HORA_INICIO_EXECUCAO + 28);
+        calendar.set(Calendar.HOUR_OF_DAY, JobConstantes.HORA_INICIO_EXECUCAO + 28);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         Job job2 = new Job(2, "teste2", calendar.getTime(), 4);
         jobs.add(job2);
 
         calendar.setTime(this.now);
-        calendar.add(Calendar.HOUR_OF_DAY, JobConstantes.HORA_INICIO_EXECUCAO + 24);
+        calendar.set(Calendar.HOUR_OF_DAY, JobConstantes.HORA_INICIO_EXECUCAO + 24);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         Job job3 = new Job(3, "teste3", calendar.getTime(), 6);

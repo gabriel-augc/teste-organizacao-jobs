@@ -23,8 +23,10 @@ public class ClassificadorDeJobs {
 
             List<List<Job>> agendamentos = this.montaAgendaDeExecucao(objJobs);
             for (List<Job>agendamento : agendamentos) {
-                agendamento.forEach(job -> System.out.println(job.getId()));
-                System.out.println("\n");
+                for (Job job : agendamento) {
+                    System.out.println(job.getId());
+                }
+                System.out.println("");
             }
 
         } catch (Exception ex) {

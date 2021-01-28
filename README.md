@@ -30,9 +30,7 @@ docker-compose exec kafka  \
 kafka-topics --create --topic jobs --partitions 1 --replication-factor 1 --if-not-exists --zookeeper localhost:32181
 ````
 
-Depois disso temos que instalar as dependências do projeto.
-
-Para isso execute:
+Depois disso temos que instalar as dependências do projeto. Para isso execute:
 ````bash
 mvn clean install
 ````
@@ -47,6 +45,11 @@ mvn test
 Para iniciar o consumidor basta executar:
 ````bash
 mvn clean compile exec:java
+````
+
+Com o projeto rodando agora vamos publicar a mensagem no kafka para nosso consumidor. Para isso execute:
+````bash
+docker-compose exec kafka bash -c "echo '[{\"ID\": 1,\"Descrição\": \"Importação de arquivos de fundos\",\"Data Máxima de conclusão\": \"2021-01-28 10:00:00\",\"Tempo estimado\": \"2\"},{\"ID\": 2,\"Descrição\": \"Importação de dados da Base Legada\",\"Data Máxima de conclusão\": \"2021-01-29 12:00:00\",\"Tempo estimado\": \"4\"},{\"ID\": 3,\"Descrição\": \"Importação de dados de integração\",\"Data Máxima de conclusão\": \"2021-01-29 08:00:00\",\"Tempo estimado\": \"6\"}]' | kafka-console-producer --request-required-acks 1 --broker-list localhost:29092 --topic jobs"
 ````
 
 ## Melhorias Futuras <a name="mel"></a>

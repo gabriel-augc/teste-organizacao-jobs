@@ -1,9 +1,7 @@
 package com.testeVivo.entidades;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.commons.lang3.time.DateUtils;
 
-import java.util.Calendar;
 import java.util.Date;
 
 public class Job {
