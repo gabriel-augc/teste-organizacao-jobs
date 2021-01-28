@@ -49,7 +49,7 @@ Para iniciar o consumidor basta executar:
 mvn clean compile exec:java
 ````
 
-##Melhorias Futuras <a name="mel"></a>
+## Melhorias Futuras <a name="mel"></a>
 Com a limitação de tempo, algumas modificações legais ficaram pra depois, como:
 * Um mecanismo de saída para os jobs organizados, já que hoje só são printados como:
     * publicar novamente no kafka em um novo topic
