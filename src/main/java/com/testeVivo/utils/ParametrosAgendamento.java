@@ -36,30 +36,25 @@ public class ParametrosAgendamento {
         }
     }
 
-    public Date getInicioExecucao() {
-        if (this.dia == null) {
-            this.dia = new Date(0);
-        }
-
-        this.calendar.setTime(this.dia);
-        this.calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_INICIO_EXECUCAO);
-        return this.calendar.getTime();
-    }
-
     public Date getFimExecucao() {
-        this.dia = new Date(0);
         this.calendar.setTime(this.dia);
-        this.calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_FIM_EXECUCAO);
+        calendar.set(Calendar.HOUR_OF_DAY, JobContantes.HORA_FIM_EXECUCAO);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
         return this.calendar.getTime();
     }
 
     public void setProximoDia() {
         if (this.dia == null) {
-            this.dia = new Date(0);
-            this.calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_INICIO_EXECUCAO);
+            this.dia = new Date();
+            this.calendar.setTime(this.dia);
+            this.calendar.set(Calendar.HOUR, 0);
+            this.calendar.set(Calendar.MINUTE, 0);
+            this.calendar.set(Calendar.SECOND, 0);
         } else {
             this.calendar.setTime(this.dia);
             this.calendar.add(Calendar.HOUR_OF_DAY, 24);
         }
+        this.dia = this.calendar.getTime();
     }
 }

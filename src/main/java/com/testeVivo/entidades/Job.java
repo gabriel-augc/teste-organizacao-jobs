@@ -26,43 +26,17 @@ public class Job {
         this.TempoEstimado = TempoEstimado;
     }
 
-    public Job() {
-
-    }
+    public Job() { }
 
     public int getId() {
         return Id;
-    }
-
-    public void setId(int id) {
-        Id = id;
-    }
-
-    public String getDescricao() {
-        return Descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        Descricao = descricao;
     }
 
     public Date getDataMaximaConclusao() {
         return DataMaximaConclusao;
     }
 
-    public Date getDataMaximaConclusaoSemHoras() {
-        return DateUtils.truncate(DataMaximaConclusao, Calendar.DATE);
-    }
-
-    public void setDataMaximaConclusao(Date dataMaximaConclusao) {
-        DataMaximaConclusao = dataMaximaConclusao;
-    }
-
     public int getTempoEstimado() {
         return TempoEstimado;
-    }
-
-    public void setTempoEstimado(int tempoEstimado) {
-        TempoEstimado = tempoEstimado;
     }
 }

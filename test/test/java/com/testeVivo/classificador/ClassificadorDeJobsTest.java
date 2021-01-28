@@ -104,7 +104,7 @@ public class ClassificadorDeJobsTest {
     }
 
     @Test
-    public void deveRetornarUmaListaDeListasOrganizadasDeAcordoComADataMaximaDeExecucaoETempoEstimado() throws ParseException {
+    public void deveRetornarUmaListaDeListasContendoOJob1E3NoPrimeiroDiaEoJob2NoSegundo() throws ParseException {
         List<Job> jobs = new ArrayList<>();
 
         Calendar calendar = Calendar.getInstance();
@@ -137,6 +137,47 @@ public class ClassificadorDeJobsTest {
         List<Job> lista1 = new ArrayList<>();
         lista1.add(job1);
         lista1.add(job3);
+
+        List<Job> lista2 = new ArrayList<>();
+        lista2.add(job2);
+
+        Assertions.assertThat(agenda).contains(lista1);
+        Assertions.assertThat(agenda).contains(lista2);
+    }
+
+    @Test
+    public void deveRetornarUmaListaDeListasContendoOJob1NoPrimeiroDiaEOJob2NoSegundo() throws ParseException {
+        List<Job> jobs = new ArrayList<>();
+
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.setTime(this.now);
+        calendar.set(Calendar.HOUR, JobContantes.HORA_INICIO_EXECUCAO + 2);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        Job job1 = new Job(1, "teste1", calendar.getTime(), 2);
+        jobs.add(job1);
+
+        calendar.setTime(this.now);
+        calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_INICIO_EXECUCAO + 24);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        Job job2 = new Job(2, "teste2", calendar.getTime(), 7);
+        jobs.add(job2);
+
+        calendar.setTime(this.now);
+        calendar.add(Calendar.HOUR_OF_DAY, JobContantes.HORA_INICIO_EXECUCAO + 28);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        Job job3 = new Job(3, "teste3", calendar.getTime(), 7);
+        jobs.add(job3);
+
+        List<List<Job>> agenda = this.classificador.montaAgendaDeExecucao(jobs);
+
+        Assert.assertEquals(agenda.size(), 2);
+
+        List<Job> lista1 = new ArrayList<>();
+        lista1.add(job1);
 
         List<Job> lista2 = new ArrayList<>();
         lista2.add(job2);

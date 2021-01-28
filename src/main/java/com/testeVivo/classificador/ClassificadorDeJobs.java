@@ -53,15 +53,15 @@ public class ClassificadorDeJobs {
         }
 
         while (jobs.size() > 0) {
-            List<Job> jobsDoDia = this.montaExecucaoDiaria(jobs);
-            agendaDeJobs.add(jobsDoDia);
-
-            jobs.removeAll(jobsDoDia);
-
             this.parametrosAgendamento.setProximoDia();
             if (this.parametrosAgendamento.getFimExecucao().after(this.parametrosAgendamento.getDataFimJanela())) {
                 break;
             }
+
+            List<Job> jobsDoDia = this.montaExecucaoDiaria(jobs);
+            agendaDeJobs.add(jobsDoDia);
+
+            jobs.removeAll(jobsDoDia);
         }
 
         return agendaDeJobs;
