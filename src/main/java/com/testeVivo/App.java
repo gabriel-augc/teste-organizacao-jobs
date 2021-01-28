@@ -1,10 +1,11 @@
-package testeVivo;
+package com.testeVivo;
 
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 
-import testeVivo.constantes.IkafkaConstantes;
-import testeVivo.consumidor.CriadorDeConsumidores;
+import com.testeVivo.classificador.ClassificadorDeJobs;
+import com.testeVivo.constantes.kafkaConstantes;
+import com.testeVivo.consumidor.CriadorDeConsumidores;
 
 public class App {
     public static void main(String[] args) {
@@ -14,13 +15,14 @@ public class App {
     static void run() {
         Consumer<Long, String> consumidor = CriadorDeConsumidores.criar();
 
+        ClassificadorDeJobs classificador = new ClassificadorDeJobs();
         int mensagensNaoEncontradas = 0;
 
         while (true) {
             final ConsumerRecords<Long, String> registros = consumidor.poll(1000);
             if (registros.count() == 0) {
                 mensagensNaoEncontradas++;
-                if (mensagensNaoEncontradas > IkafkaConstantes.MAX_NO_MESSAGE_FOUND_COUNT)
+                if (mensagensNaoEncontradas > kafkaConstantes.MAX_NO_MESSAGE_FOUND_COUNT)
                     break;
                 else
                     continue;
@@ -28,6 +30,7 @@ public class App {
 
             registros.forEach(registro -> {
                 System.out.println(registro.value());
+                classificador.classificar(registro.value());
             });
             consumidor.commitAsync();
         }

@@ -1,6 +1,6 @@
-package testeVivo.constantes;
+package com.testeVivo.constantes;
 
-public class IkafkaConstantes {
+public class kafkaConstantes {
     public static String BOOTSTRAP_SERVERS_CONFIG = "localhost:29092";
 
     public static String TOPIC_NAME="jobs";
